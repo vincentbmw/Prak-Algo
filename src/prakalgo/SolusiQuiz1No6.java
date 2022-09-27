@@ -11,7 +11,7 @@ package prakalgo;
  */
 public class SolusiQuiz1No6 {
     public static void main(String[] args) {
-        int number = 7;
+        int number = 9;
         char ch = '*';
         for (int i = 0; i < number; i++) {
             for (int j = 0; j < number; j++) {

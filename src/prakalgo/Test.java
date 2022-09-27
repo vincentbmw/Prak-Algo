@@ -16,93 +16,46 @@ public class Test {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Masukkan jumlah baris: ");
-        int baris = input.nextInt();
+        int nim = 0;
+        int sks ;
+        int tahunMasuk = 0;
+        int biayaSKS = 0;
+        int biayaTetap = 0;
+        int count = 0;
+        String jurusan = null;
+        while (count <= 2) {
 
-        for (int i = 1; i <= baris; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print(j);
+            System.out.println("Dari Prodi manakah Anda :");
+            jurusan = input.next();
+            System.out.println("Tahun Masuk Anda :");
+            tahunMasuk = input.nextInt();
+            System.out.println("Jumlah SKS yang akan Anda Ambil :");
+            sks  = input.nextInt();
+            System.out.println("Masukkan Nim");
+            nim = input.nextInt();
+
+            if (jurusan.equals("manajemen")) {
+                biayaSKS = 200000 * sks;
+            } else if (jurusan.equals("teknik industri")) {
+                biayaSKS = 225000 * sks;
+            } else if (jurusan.equals("informatika")) {
+                biayaSKS = 275000 * sks;
+            } else if (jurusan.equals("sistem informasi")) {
+                biayaSKS = 275000 * sks;
             }
-            System.out.println();
+            if (tahunMasuk <= 2013) {
+                biayaTetap = 1000000;
+            } else if (tahunMasuk <= 2018) {
+                biayaTetap = 1500000;
+            } else if (tahunMasuk < 2021) {
+                biayaTetap = 2000000;
+            } else if (tahunMasuk > 2021) {
+                biayaTetap = 3000000;
+            }
+            count++;
         }
-        System.out.println("");
-        for (int i = baris; i >= 1; i--) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print(j);
-            }
-            System.out.println();
-        }
-        System.out.println("");
-        if (baris == 1) {
-            System.out.println("1");
-        } else if (baris == 2) {
-            System.out.println("12");
-        } else {
-            System.out.println("1");
-            System.out.println("12");
-            for (int i = 1; i <= baris - 3; i++) {
-                System.out.print("1");
-                for (int j = 1; j <= i; j++) {
-                    System.out.print(" ");
-                }
-                System.out.print(i + 2);
-                System.out.println();
-            }
-            for (int i = 1; i <= baris; i++) {
-                System.out.print(i);
-            }
-        }
-        System.out.println("");
-        for (int i = 1; i <= baris; i++) {
-            for (int j = 1; j <= baris - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = i; k < (i * 2) - 1; k++) {
-                System.out.print(k);
-            }
-            for (int k = (i * 2) - 1; k >= i; k--) {
-                System.out.print(k);
-            }
-            for (int j = 1; j <= baris - i; j++) {
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-        System.out.println("");
-        for (int i = 1; i <= baris - 1; i++) {
-            for (int j = 1; j <= baris - i; j++) {
-                System.out.print(" ");
-            }
-            System.out.print("1");
-            for (int k = 0; k < (i * 2) - 3; k++) {
-                System.out.print(" ");
-            }
-            if (i != 1) {
-                System.out.print(i);
-            }
-            for (int j = 1; j <= baris - i; j++) {
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-        for (int i = 1; i <= baris; i++) {
-            System.out.print(i);
-            System.out.print(" ");
-        }
-        System.out.println("");
-        for (int i = 1; i <= baris; i++) {
-            System.out.print(i);
-        }
-        System.out.println();
-        for (int i = 2; i <= baris; i++) {
-            System.out.print(i);
-            for (int j = 0; j < baris - (i + 1); j++) {
-                System.out.print(" ");
-            }
-            if (i != baris) {
-                System.out.print(baris);
-            }
-            System.out.println();
-        }
+        System.out.println("------------------------------");
+        System.out.println("No   Nim   Jurusan   BiayaTetap   BiayaSKS   TotalSKS   Bayar");
+        System.out.println(count + "   " + nim + "   " + jurusan + "   " + biayaTetap + "   " + biayaSKS);
     }
 }
