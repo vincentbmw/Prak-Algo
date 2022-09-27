@@ -29,14 +29,12 @@ public class SolusiQuizNo5 {
             int tahunMasuk = scan.nextInt();
             if (jurusan.equals("mg")) {
                 biayaSKS = 200000;
-                bayar+= biayaSKS * totalSKS;
             }else if(jurusan.equals("ti")){
                 biayaSKS = 225000;
-                bayar+= biayaSKS * totalSKS;
             }else{
                 biayaSKS = 275000;
-                bayar+= biayaSKS * totalSKS;
             }
+            bayar+= biayaSKS * totalSKS;
             if(tahunMasuk > 2021){
                 bayar += 3000000;
                 biayaTetap = 3000000;
