@@ -6,6 +6,7 @@
 package prakalgo;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,48 +15,37 @@ import java.util.Scanner;
 /*no 2 perhitungan masih ada yang salah*/
 public class Test {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        System.out.printf("| %s | %s | %s | %s | %s | %s | %s |%n", "NO", "NIM", "JURUSAN", "BiayaTetap", "BiayaSKS", "TotalSKS", "Bayar");
+        for (int i = 1; i <= 3; i++) {
+            int SKS = 20, totalSKS = 0, biayaSKS = 0, biayaTetap = 0;
+            String nim = JOptionPane.showInputDialog(null, "masukan nim", "Input", JOptionPane.QUESTION_MESSAGE);
+            String jurusan = JOptionPane.showInputDialog(null, "masukan jurusan", "Input", JOptionPane.QUESTION_MESSAGE);
+            int tahunMasuk = Integer.parseInt(JOptionPane.showInputDialog(null, "Masukan Tahun Masuk", "Input", JOptionPane.QUESTION_MESSAGE));
 
-        int nim = 0;
-        int sks ;
-        int tahunMasuk = 0;
-        int biayaSKS = 0;
-        int biayaTetap = 0;
-        int count = 0;
-        String jurusan = null;
-        while (count <= 2) {
-
-            System.out.println("Dari Prodi manakah Anda :");
-            jurusan = input.next();
-            System.out.println("Tahun Masuk Anda :");
-            tahunMasuk = input.nextInt();
-            System.out.println("Jumlah SKS yang akan Anda Ambil :");
-            sks  = input.nextInt();
-            System.out.println("Masukkan Nim");
-            nim = input.nextInt();
-
-            if (jurusan.equals("manajemen")) {
-                biayaSKS = 200000 * sks;
-            } else if (jurusan.equals("teknik industri")) {
-                biayaSKS = 225000 * sks;
-            } else if (jurusan.equals("informatika")) {
-                biayaSKS = 275000 * sks;
-            } else if (jurusan.equals("sistem informasi")) {
-                biayaSKS = 275000 * sks;
+            if (jurusan.equalsIgnoreCase("mg")) {
+                biayaSKS = 200000;
+                totalSKS = biayaSKS * SKS;
+            } else if (jurusan.equalsIgnoreCase("ti")) {
+                biayaSKS = 225000;
+                totalSKS = biayaSKS * SKS;
+            } else if (jurusan.equalsIgnoreCase("if") || jurusan.equalsIgnoreCase("si")) {
+                biayaSKS = 275000;
+                totalSKS = biayaSKS * SKS;
             }
-            if (tahunMasuk <= 2013) {
-                biayaTetap = 1000000;
-            } else if (tahunMasuk <= 2018) {
-                biayaTetap = 1500000;
-            } else if (tahunMasuk < 2021) {
-                biayaTetap = 2000000;
-            } else if (tahunMasuk > 2021) {
+
+            if (tahunMasuk > 2021) {
                 biayaTetap = 3000000;
+            } else if (tahunMasuk >= 2019) {
+                biayaTetap = 2000000;
+            } else if (tahunMasuk >= 2014) {
+                biayaTetap = 1500000;
+            } else {
+                biayaTetap = 1000000;
             }
-            count++;
+            System.out.printf("| %d | %s | %s | %d | %d | %d | %d |", i, nim, jurusan, biayaTetap, biayaSKS, totalSKS, biayaTetap + totalSKS);
+            System.out.println("");
+
         }
-        System.out.println("------------------------------");
-        System.out.println("No   Nim   Jurusan   BiayaTetap   BiayaSKS   TotalSKS   Bayar");
-        System.out.println(count + "   " + nim + "   " + jurusan + "   " + biayaTetap + "   " + biayaSKS);
+        System.out.printf("--------------------------------------------------------------%n");
     }
 }

@@ -28,14 +28,14 @@ public class SolusiQuizNo5 {
             System.out.print("Masukkan Tahun Masuk MHS "+(i+1)+":\t");
             int tahunMasuk = scan.nextInt();
             if (jurusan.equals("mg")) {
-                bayar+=200000;
                 biayaSKS = 200000;
+                bayar+= biayaSKS * totalSKS;
             }else if(jurusan.equals("ti")){
-                bayar+=225000;
                 biayaSKS = 225000;
+                bayar+= biayaSKS * totalSKS;
             }else{
-                bayar+=275000;
                 biayaSKS = 275000;
+                bayar+= biayaSKS * totalSKS;
             }
             if(tahunMasuk > 2021){
                 bayar += 3000000;
